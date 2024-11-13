@@ -1,0 +1,71 @@
+﻿<Window x:Class="Shelter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shelter"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Введите дату поступления"/>
+            <DatePicker Name="StartDp" Grid.Column="2"/>
+            <TextBlock Text="Выберите вид" Grid.Row="2"/>
+            <ComboBox Name="ViewCmb" Grid.Row="2" Grid.Column="2"/>
+            <TextBlock Text="Введите кличку" Grid.Row="4"/>
+            <TextBox Name="NicknameTb" Grid.Row="4" Grid.Column="2"/>
+            <TextBlock Text="Наличие паспорта" Grid.Row="6"/>
+            <CheckBox Name="IsHavePassportCb" Grid.Column="2" Grid.Row="6"/>
+            <TextBlock Text="Возраст (полных лет)" Grid.Row="8"/>
+            <TextBox Name="AgeTb" Grid.Row="8" Grid.Column="2"/>
+            <TextBlock Text="Условия содержания" Grid.Row="10"/>
+            <TextBox Name="ServiceTb" Grid.Row="10" Grid.Column="2"/>
+            <TextBlock Text="Введите дату конца содержания" Grid.Row="12"/>
+            <DatePicker Name="EndDp" Grid.Column="2" Grid.Row="12"/>
+            <Button Name="OkBtn" Content="OK" Click="OkBtn_Click" Grid.Row="14" Width="100"/>
+        </Grid>
+
+        <ListView Name="AnimalsLv" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Дата поступления" DisplayMemberBinding="{Binding DateStart, StringFormat={}{0:dd.MM.yyy}}"/>
+                    <GridViewColumn Header="Вид" DisplayMemberBinding="{Binding ViewAnimal.Name}"/>
+                    <GridViewColumn Header="Кличка" DisplayMemberBinding="{Binding Nickname}"/>
+                    <GridViewColumn Header="Паспорт" DisplayMemberBinding="{Binding Pasport}"/>
+                    <GridViewColumn Header="Возраст" DisplayMemberBinding="{Binding Age}"/>
+                    <GridViewColumn Header="Пожелания" DisplayMemberBinding="{Binding Service}"/>
+                    <GridViewColumn Header="Дата убытия" DisplayMemberBinding="{Binding DateEnd, StringFormat={}{0:dd.MM.yyy}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
